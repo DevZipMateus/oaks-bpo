@@ -1204,6 +1204,113 @@
       .container { padding: 0 1rem; }
     }
 
+    /* ── GLITCH NO H1 DO HERO ── */
+    @keyframes glitchH1 {
+      0%, 100% { text-shadow: none; letter-spacing: -1px; }
+      15%      { text-shadow: -3px 0 var(--verde), 3px 0 var(--ouro); letter-spacing: -2px; }
+      30%      { text-shadow: 3px 0 var(--verde), -3px 0 var(--ouro); letter-spacing: 0px; }
+      50%      { text-shadow: -2px 0 var(--ouro); letter-spacing: -1px; }
+      65%      { text-shadow: none; letter-spacing: -1px; }
+    }
+    .glitch-active { animation: glitchH1 0.55s ease 1.4s 1; }
+
+    /* ── EYEBROW GRADIENT SHIFT ── */
+    .hero-eyebrow {
+      background: linear-gradient(90deg,
+        rgba(184,160,122,0.15) 0%,
+        rgba(74,84,56,0.22) 50%,
+        rgba(184,160,122,0.15) 100%
+      ) !important;
+      background-size: 200% 100% !important;
+      animation: eyebrowShift 5s ease-in-out infinite;
+    }
+    @keyframes eyebrowShift {
+      0%, 100% { background-position: 0% 50%; }
+      50%       { background-position: 100% 50%; }
+    }
+
+    /* ── SHAPES FLUTUANTES HERO ── */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-shape-1 {
+      width: 320px; height: 320px;
+      border: 1px solid rgba(184,160,122,0.08);
+      top: 8%; right: 5%;
+      animation: shapeFloat1 9s ease-in-out infinite;
+    }
+    .hero-shape-2 {
+      width: 180px; height: 180px;
+      border: 1px solid rgba(74,84,56,0.12);
+      bottom: 15%; left: 3%;
+      animation: shapeFloat2 7s ease-in-out infinite;
+    }
+    .hero-shape-3 {
+      width: 80px; height: 80px;
+      background: rgba(184,160,122,0.05);
+      top: 40%; left: 8%;
+      animation: shapeFloat3 11s ease-in-out infinite;
+    }
+    @keyframes shapeFloat1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-22px) rotate(8deg); }
+    }
+    @keyframes shapeFloat2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(16px) rotate(-6deg); }
+    }
+    @keyframes shapeFloat3 {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-12px) scale(1.1); }
+    }
+
+    /* ── GLOW PULSANTE WHATSAPP ── */
+    @keyframes wpGlow {
+      0%, 100% { box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+      50%       { box-shadow: 0 4px 28px rgba(37,211,102,0.60), 0 0 0 10px rgba(37,211,102,0.06); }
+    }
+    .whatsapp-float { animation: wpGlow 2.8s ease-in-out infinite; }
+
+    /* ── STAGGER NAS LISTAS DOS PILARES ── */
+    .pilar-lista li {
+      opacity: 0;
+      transform: translateX(-14px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .pilar-lista li.list-in { opacity: 1; transform: none; }
+
+    /* ── LINHA CRESCENTE NO TOPO DOS CARDS DE PILAR ── */
+    .pilar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--verde), var(--ouro));
+      border-radius: 16px 16px 0 0;
+      transition: width 0.5s ease;
+    }
+    .pilar-card:hover::before { width: 100%; }
+
+    /* ── SCAN LINE NOS CARDS MVV AO HOVER ── */
+    .mvv-card::after {
+      content: '';
+      position: absolute;
+      top: -100%; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(transparent, rgba(255,255,255,0.04), transparent);
+      transition: top 0.5s ease;
+      pointer-events: none;
+    }
+    .mvv-card:hover::after { top: 160%; }
+
+    /* ── MOUSE PARALLAX NO HERO CARD ── */
+    .hero-card { transition: transform 0.15s ease-out; }
+    .hero-card.parallax-off { animation: floatCard 5s ease-in-out infinite !important; }
+
     @media (prefers-reduced-motion: reduce) {
       .fade-up, .fade-left, .fade-right, .fade-scale { transition: none; opacity: 1; transform: none; }
       .marquee-track, .hero-card { animation: none; }
@@ -1259,6 +1366,9 @@
   <!-- ══════ HERO ══════ -->
   <section id="hero" aria-label="Apresentação">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-shape hero-shape-1" aria-hidden="true"></div>
+    <div class="hero-shape hero-shape-2" aria-hidden="true"></div>
+    <div class="hero-shape hero-shape-3" aria-hidden="true"></div>
     <div class="container hero-inner">
 
       <div class="hero-text">
@@ -1811,6 +1921,38 @@
       });
       btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
     });
+
+    // ── GLITCH NO H1 DO HERO ──
+    const heroH1 = document.querySelector('#hero h1');
+    if (heroH1) heroH1.classList.add('glitch-active');
+
+    // ── MOUSE PARALLAX NO HERO CARD ──
+    const heroSection = document.getElementById('hero');
+    const heroCardEl  = document.querySelector('.hero-card');
+    if (heroSection && heroCardEl && window.matchMedia('(pointer: fine)').matches) {
+      heroSection.addEventListener('mousemove', e => {
+        const r = heroSection.getBoundingClientRect();
+        const x = (e.clientX - r.left)  / r.width  - 0.5;
+        const y = (e.clientY - r.top)   / r.height - 0.5;
+        heroCardEl.style.transform = `perspective(1000px) rotateY(${x * 6}deg) rotateX(${-y * 5}deg) translateY(-8px)`;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        heroCardEl.style.transform = '';
+      });
+    }
+
+    // ── STAGGER NAS LISTAS DOS PILARES ──
+    const listObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.pilar-lista li').forEach((li, i) => {
+            setTimeout(() => li.classList.add('list-in'), i * 90 + 200);
+          });
+          listObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.pilar-card').forEach(c => listObs.observe(c));
 
     // ── POP NOS DIFERENCIAIS DO SOBRE ──
     const difObs = new IntersectionObserver((entries) => {
