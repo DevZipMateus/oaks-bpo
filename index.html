@@ -7,7 +7,7 @@
   <meta name="description" content="Oaks BPO — A base sólida do seu próximo nível. BPO Financeiro, gestão estratégica e tecnologia para empresas que querem crescer com segurança e previsibilidade.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Oaks BPO & Gestão Financeira">
-  <meta name="theme-color" content="#1C2B4A">
+  <meta name="theme-color" content="#141824">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
@@ -38,19 +38,22 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --azul:        #1C2B4A;
-      --azul-medio:  #2A3F6E;
-      --azul-claro:  #3A5490;
-      --verde:       #3D6B3A;
-      --verde-claro: #4E8A4A;
-      --ouro:        #C9A84C;
-      --ouro-claro:  #DFC06A;
+      --azul:        #141824;   /* azul quase preto */
+      --azul-medio:  #1E2535;
+      --azul-claro:  #2B3448;
+      --verde:       #4A5438;   /* verde musgo escuro */
+      --verde-claro: #5C6847;
+      --ouro:        #B8A07A;   /* areia/khaki */
+      --ouro-claro:  #C9B38E;
+      --rosa:        #CDB5A3;   /* rosa nude */
+      --taupe:       #8F8373;   /* taupe acinzentado */
       --branco:      #FFFFFF;
-      --cinza-f:     #F5F7FA;
-      --cinza-2:     #E8EBF2;
-      --cinza-3:     #D0D5E3;
-      --texto:       #1C2B4A;
-      --texto-leve:  #5A6780;
+      --creme:       #E5E2D6;   /* creme off-white */
+      --cinza-f:     #F0EDE6;   /* creme claro */
+      --cinza-2:     #E0DDD6;
+      --cinza-3:     #C8C8C6;   /* cinza neutro */
+      --texto:       #141824;
+      --texto-leve:  #6B5F53;
       --ff-titulo:   'Cormorant Garamond', serif;
       --ff-corpo:    'Inter', sans-serif;
       --header-h:    76px;
@@ -62,7 +65,7 @@
     body {
       font-family: var(--ff-corpo);
       color: var(--texto);
-      background: var(--branco);
+      background: var(--creme);
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -227,7 +230,7 @@
     }
     .btn-ouro:hover {
       background: var(--ouro-claro);
-      box-shadow: 0 8px 28px rgba(201,168,76,0.35);
+      box-shadow: 0 8px 28px rgba(184,160,122,0.35);
     }
 
     .btn-outline-branco {
@@ -246,7 +249,7 @@
     }
     .btn-azul:hover {
       background: var(--azul-medio);
-      box-shadow: 0 8px 28px rgba(28,43,74,0.3);
+      box-shadow: 0 8px 28px rgba(20,24,36,0.3);
     }
 
     /* Ripple */
@@ -270,14 +273,14 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       height: var(--header-h);
-      background: rgba(255,255,255,0.97);
+      background: rgba(229,226,214,0.97);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 1px 0 rgba(28,43,74,0.08);
+      box-shadow: 0 1px 0 rgba(20,24,36,0.08);
       transition: box-shadow var(--tr);
     }
     header.scrolled {
-      box-shadow: 0 4px 24px rgba(28,43,74,0.12);
+      box-shadow: 0 4px 24px rgba(20,24,36,0.12);
     }
 
     .header-inner {
@@ -330,7 +333,7 @@
     .nav-cta:hover {
       background: var(--azul-medio) !important;
       color: var(--branco) !important;
-      box-shadow: 0 4px 16px rgba(28,43,74,0.25);
+      box-shadow: 0 4px 16px rgba(20,24,36,0.25);
     }
 
     /* hamburger */
@@ -358,7 +361,7 @@
     #navMenu {
       position: fixed;
       top: var(--header-h); left: 0; right: 0;
-      background: var(--branco);
+      background: var(--creme);
       z-index: 999;
       max-height: 0;
       overflow: hidden;
@@ -389,7 +392,7 @@
       min-height: 100vh;
       padding: calc(var(--header-h) + 80px) 0 80px;
       background:
-        linear-gradient(135deg, rgba(28,43,74,0.95) 0%, rgba(28,43,74,0.80) 60%, rgba(42,63,110,0.88) 100%),
+        linear-gradient(135deg, rgba(20,24,36,0.97) 0%, rgba(20,24,36,0.86) 55%, rgba(74,84,56,0.55) 100%),
         url('images/bg-hero.jpg') center / cover no-repeat;
       background-attachment: scroll, fixed;
       display: flex;
@@ -417,8 +420,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.35);
+      background: rgba(184,160,122,0.15);
+      border: 1px solid rgba(184,160,122,0.35);
       color: var(--ouro-claro);
       font-size: 0.75rem;
       font-weight: 600;
@@ -562,8 +565,8 @@
 
     .hero-card-badge {
       margin-top: 24px;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(184,160,122,0.15);
+      border: 1px solid rgba(184,160,122,0.3);
       border-radius: 8px;
       padding: 14px 16px;
       text-align: center;
@@ -644,7 +647,7 @@
     .sobre-img-wrap {
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(28,43,74,0.18);
+      box-shadow: 0 24px 64px rgba(20,24,36,0.18);
     }
     .sobre-img-wrap img {
       width: 100%;
@@ -659,7 +662,7 @@
       border-radius: 14px;
       padding: 22px 26px;
       text-align: center;
-      box-shadow: 0 12px 32px rgba(201,168,76,0.35);
+      box-shadow: 0 12px 32px rgba(184,160,122,0.35);
     }
     .sobre-badge strong {
       display: block;
@@ -705,7 +708,7 @@
     }
     .dif-icon {
       width: 36px; height: 36px;
-      background: rgba(201,168,76,0.12);
+      background: rgba(184,160,122,0.12);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -732,7 +735,7 @@
     ══════════════════════════════════ */
     #mvv {
       background:
-        linear-gradient(rgba(28,43,74,0.95), rgba(28,43,74,0.95)),
+        linear-gradient(rgba(20,24,36,0.95), rgba(20,24,36,0.95)),
         url('images/bg-servicos.jpg') center / cover no-repeat;
       background-attachment: scroll, fixed;
     }
@@ -764,14 +767,14 @@
     }
     .mvv-card:hover {
       background: rgba(255,255,255,0.08);
-      border-color: rgba(201,168,76,0.3);
+      border-color: rgba(184,160,122,0.3);
       transform: translateY(-6px);
     }
     .mvv-card:hover::before { transform: scaleX(1); }
 
     .mvv-icon {
       width: 64px; height: 64px;
-      background: rgba(201,168,76,0.15);
+      background: rgba(184,160,122,0.15);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -782,7 +785,7 @@
       transition: background var(--tr);
     }
     .mvv-card:hover .mvv-icon {
-      background: rgba(201,168,76,0.25);
+      background: rgba(184,160,122,0.25);
     }
 
     .mvv-card h3 {
@@ -801,7 +804,7 @@
        PILARES / SERVIÇOS
     ══════════════════════════════════ */
     #pilares {
-      background: var(--branco);
+      background: var(--creme);
     }
 
     .pilares-grid {
@@ -827,23 +830,23 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
       transition: left 0.5s ease;
     }
-    .pilar-card:hover { border-color: var(--ouro); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(28,43,74,0.1); }
+    .pilar-card:hover { border-color: var(--ouro); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(20,24,36,0.1); }
     .pilar-card:hover::after { left: 150%; }
 
     .pilar-num {
       font-family: var(--ff-titulo);
       font-size: 3rem;
       font-weight: 700;
-      color: rgba(28,43,74,0.06);
+      color: rgba(20,24,36,0.06);
       line-height: 1;
       margin-bottom: 16px;
       transition: color var(--tr);
     }
-    .pilar-card:hover .pilar-num { color: rgba(201,168,76,0.15); }
+    .pilar-card:hover .pilar-num { color: rgba(184,160,122,0.15); }
 
     .pilar-icon {
       width: 56px; height: 56px;
-      background: rgba(28,43,74,0.06);
+      background: rgba(20,24,36,0.06);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -904,7 +907,7 @@
     }
 
     .dif-card {
-      background: var(--branco);
+      background: var(--creme);
       border: 1px solid var(--cinza-2);
       border-radius: 14px;
       padding: 32px 24px;
@@ -914,11 +917,11 @@
     .dif-card:hover {
       border-color: var(--ouro);
       transform: translateY(-4px);
-      box-shadow: 0 12px 36px rgba(28,43,74,0.09);
+      box-shadow: 0 12px 36px rgba(20,24,36,0.09);
     }
     .dif-card-icon {
       width: 60px; height: 60px;
-      background: rgba(28,43,74,0.05);
+      background: rgba(20,24,36,0.05);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -946,7 +949,7 @@
     ══════════════════════════════════ */
     #contato {
       background:
-        linear-gradient(rgba(28,43,74,0.93), rgba(28,43,74,0.93)),
+        linear-gradient(rgba(20,24,36,0.93), rgba(20,24,36,0.93)),
         url('images/bg-contato.jpg') center / cover no-repeat;
       background-attachment: scroll, fixed;
     }
@@ -982,7 +985,7 @@
     }
     .contato-item-icon {
       width: 44px; height: 44px;
-      background: rgba(201,168,76,0.15);
+      background: rgba(184,160,122,0.15);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -1068,7 +1071,7 @@
        FOOTER
     ══════════════════════════════════ */
     footer {
-      background: #0F1A30;
+      background: #0D1018;
       padding: 40px 0 24px;
     }
 
@@ -1716,7 +1719,7 @@
         particles.forEach(p => {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(201,168,76,${p.a})`;
+          ctx.fillStyle = `rgba(184,160,122,${p.a})`;
           ctx.fill();
           p.x += p.vx; p.y += p.vy;
           if (p.y < -4) { p.y = canvas.height + 4; p.x = rand(0, canvas.width); }
