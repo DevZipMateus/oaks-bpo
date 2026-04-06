@@ -197,12 +197,12 @@
     .fade-right.visible,
     .fade-scale.visible { opacity: 1; transform: none; }
 
-    .d1 { transition-delay: 0.05s; }
-    .d2 { transition-delay: 0.12s; }
-    .d3 { transition-delay: 0.19s; }
-    .d4 { transition-delay: 0.26s; }
-    .d5 { transition-delay: 0.33s; }
-    .d6 { transition-delay: 0.40s; }
+    .d1 { transition-delay: 0.04s; }
+    .d2 { transition-delay: 0.08s; }
+    .d3 { transition-delay: 0.12s; }
+    .d4 { transition-delay: 0.16s; }
+    .d5 { transition-delay: 0.20s; }
+    .d6 { transition-delay: 0.24s; }
 
     /* ── BOTÕES ── */
     .btn {
@@ -1679,8 +1679,13 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     animEls.forEach(el => observer.observe(el));
+
+    // Fallback: garante que tudo apareça mesmo se o observer falhar
+    setTimeout(() => {
+      animEls.forEach(el => el.classList.add('visible'));
+    }, 800);
 
     // ── CONTADOR ──
     function animCounter(el) {
