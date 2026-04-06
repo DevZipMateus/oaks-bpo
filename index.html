@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oaks BPO & Gestão Financeira</title>
+  <meta name="description" content="Oaks BPO — A base sólida do seu próximo nível. BPO Financeiro, gestão estratégica e tecnologia para empresas que querem crescer com segurança e previsibilidade.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Oaks BPO & Gestão Financeira">
+  <meta name="theme-color" content="#1C2B4A">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://oaksbpo.com.br/">
+  <meta property="og:title"       content="Oaks BPO & Gestão Financeira">
+  <meta property="og:description" content="BPO Financeiro, gestão estratégica e tecnologia para empresas que querem crescer com segurança e previsibilidade.">
+  <meta property="og:image"       content="images/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Oaks BPO & Gestão Financeira">
+  <meta name="twitter:description" content="BPO Financeiro, gestão estratégica e tecnologia para empresas que querem crescer com segurança e previsibilidade.">
+  <meta name="twitter:image"       content="images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon"      href="images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:        #1C2B4A;
+      --azul-medio:  #2A3F6E;
+      --azul-claro:  #3A5490;
+      --verde:       #3D6B3A;
+      --verde-claro: #4E8A4A;
+      --ouro:        #C9A84C;
+      --ouro-claro:  #DFC06A;
+      --branco:      #FFFFFF;
+      --cinza-f:     #F5F7FA;
+      --cinza-2:     #E8EBF2;
+      --cinza-3:     #D0D5E3;
+      --texto:       #1C2B4A;
+      --texto-leve:  #5A6780;
+      --ff-titulo:   'Cormorant Garamond', serif;
+      --ff-corpo:    'Inter', sans-serif;
+      --header-h:    76px;
+      --tr:          0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-corpo);
+      color: var(--texto);
+      background: var(--branco);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+    h1, h2, h3 { font-family: var(--ff-titulo); line-height: 1.2; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section { padding: 100px 0; }
+
+    /* ── BARRA DE PROGRESSO ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--ouro), var(--verde-claro));
+      z-index: 2000;
+      transition: width 0.08s linear;
+    }
+
+    /* ── SECTION TAG ── */
+    .section-tag {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 14px;
+      color: var(--ouro);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      font-family: var(--ff-corpo);
+      position: relative;
+      padding: 0 24px;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 16px; height: 1.5px;
+      background: var(--ouro);
+    }
+    .section-tag::before { left: 0; }
+    .section-tag::after  { right: 0; }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: var(--ff-titulo);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--azul);
+      text-align: center;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .section-title.light { color: var(--branco); }
+
+    .section-desc {
+      text-align: center;
+      color: var(--texto-leve);
+      font-size: 1rem;
+      max-width: 580px;
+      margin: 0 auto 56px;
+      line-height: 1.75;
+    }
+    .section-desc.light { color: rgba(255,255,255,0.75); }
+
+    /* ── SHIMMER NOS TÍTULOS ── */
+    .section-title.shimmer-active {
+      background: linear-gradient(90deg,
+        var(--azul) 15%,
+        var(--ouro) 35%,
+        var(--azul) 50%,
+        var(--ouro) 65%,
+        var(--azul) 85%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleShimmer 1.8s ease forwards;
+    }
+    .section-title.light.shimmer-active {
+      background: linear-gradient(90deg,
+        #fff 15%, var(--ouro-claro) 35%,
+        #fff 50%, var(--ouro-claro) 65%, #fff 85%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleShimmer 1.8s ease forwards;
+    }
+    @keyframes titleShimmer {
+      from { background-position: 100% center; }
+      to   { background-position:   0% center; }
+    }
+
+    /* ── ANIMAÇÕES SCROLL ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible,
+    .fade-left.visible,
+    .fade-right.visible,
+    .fade-scale.visible { opacity: 1; transform: none; }
+
+    .d1 { transition-delay: 0.05s; }
+    .d2 { transition-delay: 0.12s; }
+    .d3 { transition-delay: 0.19s; }
+    .d4 { transition-delay: 0.26s; }
+    .d5 { transition-delay: 0.33s; }
+    .d6 { transition-delay: 0.40s; }
+
+    /* ── BOTÕES ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      font-family: var(--ff-corpo);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: background var(--tr), color var(--tr),
+                  box-shadow var(--tr), transform 0.2s;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-ouro {
+      background: var(--ouro);
+      color: var(--azul);
+    }
+    .btn-ouro:hover {
+      background: var(--ouro-claro);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.35);
+    }
+
+    .btn-outline-branco {
+      background: transparent;
+      color: var(--branco);
+      border: 1.5px solid rgba(255,255,255,0.55);
+    }
+    .btn-outline-branco:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.8);
+    }
+
+    .btn-azul {
+      background: var(--azul);
+      color: var(--branco);
+    }
+    .btn-azul:hover {
+      background: var(--azul-medio);
+      box-shadow: 0 8px 28px rgba(28,43,74,0.3);
+    }
+
+    /* Ripple */
+    .ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: scale(0);
+      animation: rippleAnim 0.65s linear forwards;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to { transform: scale(4.5); opacity: 0; }
+    }
+
+    /* ══════════════════════════════════
+       HEADER
+    ══════════════════════════════════ */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(28,43,74,0.08);
+      transition: box-shadow var(--tr);
+    }
+    header.scrolled {
+      box-shadow: 0 4px 24px rgba(28,43,74,0.12);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: 2rem;
+    }
+
+    .logo-wrap img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--texto);
+      position: relative;
+      transition: color var(--tr);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--ouro);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--azul); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--azul) !important;
+      color: var(--branco) !important;
+      padding: 0.5rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.85rem !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--azul-medio) !important;
+      color: var(--branco) !important;
+      box-shadow: 0 4px 16px rgba(28,43,74,0.25);
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2.5px;
+      background: var(--azul);
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* nav mobile */
+    #navMenu {
+      position: fixed;
+      top: var(--header-h); left: 0; right: 0;
+      background: var(--branco);
+      z-index: 999;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, box-shadow 0.3s;
+    }
+    #navMenu.open {
+      max-height: 380px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    #navMenu ul { list-style: none; padding: 1rem 1.5rem 1.5rem; }
+    #navMenu ul li a {
+      display: block;
+      padding: 0.75rem 0;
+      color: var(--texto);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--cinza-2);
+      transition: color var(--tr), padding-left var(--tr);
+    }
+    #navMenu ul li:last-child a { border-bottom: none; }
+    #navMenu ul li a:hover { color: var(--ouro); padding-left: 6px; }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      padding: calc(var(--header-h) + 80px) 0 80px;
+      background:
+        linear-gradient(135deg, rgba(28,43,74,0.95) 0%, rgba(28,43,74,0.80) 60%, rgba(42,63,110,0.88) 100%),
+        url('images/bg-hero.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--ouro-claro);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      color: var(--branco);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--ouro-claro);
+    }
+
+    .hero-text h2 {
+      font-family: var(--ff-corpo);
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      color: rgba(255,255,255,0.78);
+      font-weight: 400;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 14px;
+    }
+
+    .hero-slogan {
+      font-family: var(--ff-titulo);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ouro-claro);
+      margin-bottom: 36px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 32px;
+      margin-top: 36px;
+    }
+    .hero-stat {
+      flex: 1;
+      padding: 0 24px 0 0;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat:last-child { border-right: none; padding-left: 24px; padding-right: 0; }
+    .hero-stat strong {
+      display: block;
+      font-family: var(--ff-titulo);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--ouro-claro);
+      line-height: 1;
+      margin-bottom: 4px;
+      min-width: 60px;
+    }
+    .hero-stat span {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Hero card */
+    .hero-card {
+      animation: floatCard 5s ease-in-out infinite;
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .hero-card-inner {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 40px 32px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .hero-card-logo {
+      width: 160px;
+      margin: 0 auto 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    .hero-card-title {
+      font-family: var(--ff-titulo);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--branco);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .hero-card-sub {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ouro-claro);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .hero-card-divider {
+      width: 48px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+      margin: 0 auto 24px;
+    }
+
+    .hero-card-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-card-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.83rem;
+    }
+    .hero-card-item i {
+      color: var(--ouro-claro);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .hero-card-badge {
+      margin-top: 24px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .hero-card-badge strong {
+      font-family: var(--ff-titulo);
+      font-size: 1.5rem;
+      color: var(--ouro-claro);
+      display: block;
+    }
+    .hero-card-badge span {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+    }
+
+    /* typewriter cursor */
+    .hero-text h2::after {
+      content: '|';
+      color: var(--ouro-claro);
+      animation: blinkCursor 0.75s step-end infinite;
+    }
+    .hero-text h2.tw-done::after { display: none; }
+    @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ══════════════════════════════════
+       MARQUEE
+    ══════════════════════════════════ */
+    .marquee-bar {
+      background: var(--azul);
+      overflow: hidden;
+      padding: 14px 0;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marqueeScroll 30s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 36px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .marquee-item i { color: var(--ouro); font-size: 0.7rem; }
+
+    /* ══════════════════════════════════
+       SOBRE
+    ══════════════════════════════════ */
+    #sobre {
+      background: var(--cinza-f);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .sobre-visual {
+      position: relative;
+    }
+    .sobre-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(28,43,74,0.18);
+    }
+    .sobre-img-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    .sobre-badge {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      background: var(--ouro);
+      border-radius: 14px;
+      padding: 22px 26px;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(201,168,76,0.35);
+    }
+    .sobre-badge strong {
+      display: block;
+      font-family: var(--ff-titulo);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--azul);
+      line-height: 1;
+    }
+    .sobre-badge span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--azul);
+      letter-spacing: 0.5px;
+    }
+
+    .sobre-text .section-tag { margin: 0 0 14px; }
+    .sobre-text .section-title { text-align: left; }
+
+    .sobre-text p {
+      color: var(--texto-leve);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .sobre-diferenciais {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 28px 0 32px;
+    }
+    .sobre-dif {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      opacity: 0;
+    }
+    .sobre-dif.dif-visible { animation: difPop 0.45s ease forwards; }
+    @keyframes difPop {
+      0%   { opacity: 0; transform: scale(0.85) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .dif-icon {
+      width: 36px; height: 36px;
+      background: rgba(201,168,76,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ouro);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .dif-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 2px;
+    }
+    .dif-text span {
+      font-size: 0.75rem;
+      color: var(--texto-leve);
+      line-height: 1.45;
+    }
+
+    /* ══════════════════════════════════
+       MVV
+    ══════════════════════════════════ */
+    #mvv {
+      background:
+        linear-gradient(rgba(28,43,74,0.95), rgba(28,43,74,0.95)),
+        url('images/bg-servicos.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
+
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .mvv-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: background var(--tr), border-color var(--tr), transform var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+    .mvv-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .mvv-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-6px);
+    }
+    .mvv-card:hover::before { transform: scaleX(1); }
+
+    .mvv-icon {
+      width: 64px; height: 64px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      font-size: 1.5rem;
+      color: var(--ouro-claro);
+      transition: background var(--tr);
+    }
+    .mvv-card:hover .mvv-icon {
+      background: rgba(201,168,76,0.25);
+    }
+
+    .mvv-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--branco);
+      margin-bottom: 16px;
+    }
+    .mvv-card p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════
+       PILARES / SERVIÇOS
+    ══════════════════════════════════ */
+    #pilares {
+      background: var(--branco);
+    }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pilar-card {
+      background: var(--cinza-f);
+      border: 1px solid var(--cinza-2);
+      border-radius: 16px;
+      padding: 40px 32px;
+      transition: all var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+    .pilar-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: left 0.5s ease;
+    }
+    .pilar-card:hover { border-color: var(--ouro); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(28,43,74,0.1); }
+    .pilar-card:hover::after { left: 150%; }
+
+    .pilar-num {
+      font-family: var(--ff-titulo);
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(28,43,74,0.06);
+      line-height: 1;
+      margin-bottom: 16px;
+      transition: color var(--tr);
+    }
+    .pilar-card:hover .pilar-num { color: rgba(201,168,76,0.15); }
+
+    .pilar-icon {
+      width: 56px; height: 56px;
+      background: rgba(28,43,74,0.06);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--azul);
+      margin-bottom: 20px;
+      transition: background var(--tr), color var(--tr);
+    }
+    .pilar-card:hover .pilar-icon { background: var(--azul); color: var(--branco); }
+
+    .pilar-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 12px;
+    }
+    .pilar-card p {
+      font-size: 0.88rem;
+      color: var(--texto-leve);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .pilar-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pilar-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--texto-leve);
+    }
+    .pilar-lista li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--ouro);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ══════════════════════════════════
+       DIFERENCIAL
+    ══════════════════════════════════ */
+    #diferencial {
+      background: var(--cinza-f);
+    }
+
+    .dif-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .dif-card {
+      background: var(--branco);
+      border: 1px solid var(--cinza-2);
+      border-radius: 14px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all var(--tr);
+    }
+    .dif-card:hover {
+      border-color: var(--ouro);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(28,43,74,0.09);
+    }
+    .dif-card-icon {
+      width: 60px; height: 60px;
+      background: rgba(28,43,74,0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 1.4rem;
+      color: var(--azul);
+      transition: all var(--tr);
+    }
+    .dif-card:hover .dif-card-icon { background: var(--azul); color: var(--branco); }
+    .dif-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+    .dif-card p {
+      font-size: 0.82rem;
+      color: var(--texto-leve);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════
+       CONTATO
+    ══════════════════════════════════ */
+    #contato {
+      background:
+        linear-gradient(rgba(28,43,74,0.93), rgba(28,43,74,0.93)),
+        url('images/bg-contato.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .contato-texto h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--branco);
+      margin-bottom: 16px;
+    }
+    .contato-texto p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .contato-itens {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contato-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contato-item-icon {
+      width: 44px; height: 44px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ouro-claro);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contato-item-txt strong {
+      display: block;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .contato-item-txt a,
+    .contato-item-txt span {
+      color: var(--branco);
+      font-size: 0.9rem;
+      transition: color var(--tr);
+    }
+    .contato-item-txt a:hover { color: var(--ouro-claro); }
+
+    .contato-cta-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 44px 36px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .contato-cta-box .cta-titulo {
+      font-family: var(--ff-titulo);
+      font-size: 1.8rem;
+      color: var(--branco);
+      margin-bottom: 10px;
+    }
+    .contato-cta-box .cta-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .contato-cta-box .btn {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      padding: 1rem 2rem;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--branco);
+    }
+    .btn-whatsapp:hover {
+      background: #20B856;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.35);
+    }
+
+    .sociais {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      transition: all var(--tr);
+    }
+    .social-btn:hover { background: var(--ouro); color: var(--azul); border-color: var(--ouro); }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      background: #0F1A30;
+      padding: 40px 0 24px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer-logo img {
+      height: 44px;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+    .footer-info {
+      text-align: right;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+    }
+    .footer-copy {
+      text-align: center;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.3);
+      padding-top: 20px;
+    }
+
+    /* ══════════════════════════════════
+       BOTÃO WHATSAPP FLUTUANTE
+    ══════════════════════════════════ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-size: 1.6rem;
+      z-index: 900;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+      transition: background var(--tr), transform var(--tr), box-shadow var(--tr);
+    }
+    .whatsapp-float:hover {
+      background: #20B856;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+    }
+
+    /* scroll-top */
+    .scroll-top {
+      position: fixed;
+      bottom: 28px; left: 28px;
+      width: 42px; height: 42px;
+      background: var(--azul);
+      border: none;
+      border-radius: 50%;
+      color: var(--branco);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--tr), background var(--tr), transform var(--tr);
+      z-index: 900;
+    }
+    .scroll-top.show { opacity: 1; pointer-events: auto; }
+    .scroll-top:hover { background: var(--azul-medio); transform: translateY(-3px); }
+
+    /* ══════════════════════════════════
+       RESPONSIVIDADE
+    ══════════════════════════════════ */
+    @media (max-width: 1199px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-eyebrow { margin: 0 auto 24px; }
+      .hero-text h2 { max-width: 100%; }
+      .hero-btns { justify-content: center; }
+      .hero-card { max-width: 420px; margin: 0 auto; }
+      .hero-stats { max-width: 420px; margin: 36px auto 0; }
+      .sobre-grid { grid-template-columns: 1fr; gap: 48px; }
+      .sobre-visual { display: none; }
+      .sobre-text .section-tag { margin: 0 auto 14px; }
+      .sobre-text .section-title { text-align: center; }
+      .sobre-text p { text-align: center; }
+      .sobre-diferenciais { max-width: 480px; margin: 28px auto 32px; }
+      .sobre-text .btn { display: block; width: fit-content; margin: 0 auto; }
+      .mvv-grid { grid-template-columns: 1fr 1fr; }
+      .pilares-grid { grid-template-columns: 1fr 1fr; }
+      .dif-grid { grid-template-columns: repeat(2, 1fr); }
+      .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contato-texto { text-align: center; }
+      .contato-itens { max-width: 400px; margin: 0 auto; }
+      #mvv, #contato { background-attachment: scroll, scroll; }
+    }
+
+    @media (max-width: 767px) {
+      :root { --header-h: 64px; }
+      section { padding: 72px 0; }
+      .logo-wrap img { height: 44px; }
+      nav .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mvv-grid { grid-template-columns: 1fr; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .dif-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-info { text-align: center; }
+      .hero-card-inner { padding: 32px 24px; }
+      .hero-card-logo { width: 130px; }
+    }
+
+    @media (max-width: 479px) {
+      :root { --header-h: 58px; }
+      section { padding: 56px 0; }
+      .dif-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+      .hero-stats { flex-direction: column; gap: 16px; }
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0 0 14px; }
+      .hero-stat:last-child { border-bottom: none; padding: 0; }
+      .sobre-diferenciais { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 360px) {
+      .container { padding: 0 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up, .fade-left, .fade-right, .fade-scale { transition: none; opacity: 1; transform: none; }
+      .marquee-track, .hero-card { animation: none; }
+      .hero-text h2::after { display: none; }
+      .section-title.shimmer-active { background: none; -webkit-text-fill-color: inherit; animation: none; }
+      .sobre-dif { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ══════ HEADER ══════ -->
+  <header id="header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo-wrap" aria-label="Oaks BPO — página inicial">
+        <img src="images/logo.png" alt="Logo Oaks BPO & Gestão Financeira">
+      </a>
+
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#mvv">Missão & Valores</a></li>
+          <li><a href="#pilares">Serviços</a></li>
+          <li><a href="#diferencial">Diferenciais</a></li>
+          <li><a href="#contato" class="nav-cta">Fale conosco</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburgerBtn"
+              aria-label="Abrir menu"
+              aria-expanded="false"
+              aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAV MOBILE -->
+  <nav id="navMenu" aria-label="Menu mobile">
+    <ul>
+      <li><a href="#sobre"       class="nav-mob-link">Sobre</a></li>
+      <li><a href="#mvv"         class="nav-mob-link">Missão &amp; Valores</a></li>
+      <li><a href="#pilares"     class="nav-mob-link">Serviços</a></li>
+      <li><a href="#diferencial" class="nav-mob-link">Diferenciais</a></li>
+      <li><a href="#contato"     class="nav-mob-link">
+        <i class="fa-brands fa-whatsapp"></i> Fale conosco
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════ HERO ══════ -->
+  <section id="hero" aria-label="Apresentação">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="container hero-inner">
+
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <i class="fa-solid fa-tree" aria-hidden="true"></i>
+          BPO Financeiro &amp; Gestão Estratégica
+        </div>
+        <h1>Oaks <em>BPO</em></h1>
+        <h2>A base sólida do seu próximo nível financeiro.</h2>
+        <p class="hero-slogan">"Assim como o carvalho, sua empresa merece raízes profundas."</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/5541997013092" target="_blank" rel="noopener noreferrer"
+             class="btn btn-ouro">
+            <i class="fa-brands fa-whatsapp"></i> Falar com especialista
+          </a>
+          <a href="#pilares" class="btn btn-outline-branco">
+            Nossos serviços <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>R$<span class="counter" data-target="16" data-suffix="M+">16M+</span></strong>
+            <span>Geridos</span>
+          </div>
+          <div class="hero-stat">
+            <strong class="counter" data-target="3" data-suffix=" pilares">3 pilares</strong>
+            <span>De atuação</span>
+          </div>
+          <div class="hero-stat">
+            <strong><i class="fa-solid fa-shield-halved" style="font-size:1.6rem"></i></strong>
+            <span>Segurança total</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden="true">
+        <div class="hero-card-inner">
+          <img class="hero-card-logo" src="images/logo.png" alt="Oaks BPO">
+          <div class="hero-card-title">Oaks BPO & Gestão Financeira</div>
+          <div class="hero-card-sub">Sua estrutura financeira de elite</div>
+          <div class="hero-card-divider"></div>
+          <div class="hero-card-items">
+            <div class="hero-card-item">
+              <i class="fa-solid fa-check-circle"></i>
+              Contas a pagar &amp; receber
+            </div>
+            <div class="hero-card-item">
+              <i class="fa-solid fa-check-circle"></i>
+              Conciliação bancária diária
+            </div>
+            <div class="hero-card-item">
+              <i class="fa-solid fa-check-circle"></i>
+              Relatórios gerenciais &amp; DRE
+            </div>
+            <div class="hero-card-item">
+              <i class="fa-solid fa-check-circle"></i>
+              Fluxo de caixa &amp; planejamento
+            </div>
+            <div class="hero-card-item">
+              <i class="fa-solid fa-check-circle"></i>
+              Automação &amp; compliance
+            </div>
+          </div>
+          <div class="hero-card-badge">
+            <strong>R$ 16M+</strong>
+            <span>Em capital gerido</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> BPO Financeiro</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Conciliação Bancária</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Fluxo de Caixa</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Gestão Estratégica</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Relatórios Gerenciais</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Compliance Financeiro</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Automação de Processos</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Inteligência Analítica</span>
+      <!-- duplicado para loop -->
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> BPO Financeiro</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Conciliação Bancária</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Fluxo de Caixa</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Gestão Estratégica</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Relatórios Gerenciais</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Compliance Financeiro</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Automação de Processos</span>
+      <span class="marquee-item"><i class="fa-solid fa-circle"></i> Inteligência Analítica</span>
+    </div>
+  </div>
+
+  <!-- ══════ SOBRE ══════ -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <div class="sobre-visual fade-left">
+          <div class="sobre-img-wrap">
+            <img src="images/bg-sobre.jpg" alt="Equipe Oaks BPO trabalhando em gestão financeira">
+          </div>
+          <div class="sobre-badge">
+            <strong>R$ 16M+</strong>
+            <span>Capital gerido</span>
+          </div>
+        </div>
+
+        <div class="sobre-text fade-right">
+          <span class="section-tag">Nossa história</span>
+          <h2 class="section-title">Raízes fortes para grandes voos</h2>
+
+          <p>Observamos um padrão perigoso: empreendedores brilhantes sufocando em meio a planilhas e burocracias, perdendo o foco no que realmente importa — estratégia e crescimento.</p>
+          <p>Foi para romper esse ciclo que nasceu a <strong>Oaks BPO</strong>. O nome <em>Oaks</em> (Carvalho) reflete nossa essência: raízes profundas que atravessam gerações e resistem às maiores tempestades. Somos o alicerce financeiro da sua empresa.</p>
+          <p>Da operação ao dado estratégico, transformamos o "caos" em clareza — permitindo que o dono do negócio saia da trincheira operacional e suba para a torre de comando.</p>
+
+          <div class="sobre-diferenciais">
+            <div class="sobre-dif">
+              <div class="dif-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="dif-text">
+                <strong>Solidez &amp; Segurança</strong>
+                <span>Proteção total do patrimônio</span>
+              </div>
+            </div>
+            <div class="sobre-dif">
+              <div class="dif-icon"><i class="fa-solid fa-eye"></i></div>
+              <div class="dif-text">
+                <strong>Transparência absoluta</strong>
+                <span>Dados reais, decisões certas</span>
+              </div>
+            </div>
+            <div class="sobre-dif">
+              <div class="dif-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <div class="dif-text">
+                <strong>Precisão cirúrgica</strong>
+                <span>Rigor técnico em cada entrega</span>
+              </div>
+            </div>
+            <div class="sobre-dif">
+              <div class="dif-icon"><i class="fa-solid fa-handshake"></i></div>
+              <div class="dif-text">
+                <strong>Mentalidade parceira</strong>
+                <span>Cuidamos como se fosse nosso</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5541997013092" target="_blank" rel="noopener noreferrer"
+             class="btn btn-azul">
+            <i class="fa-brands fa-whatsapp"></i> Começar agora
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ MVV ══════ -->
+  <section id="mvv">
+    <div class="container">
+      <span class="section-tag">Quem somos</span>
+      <h2 class="section-title light">Missão, visão &amp; valores</h2>
+      <p class="section-desc light">Os pilares que guiam cada decisão e cada entrega da Oaks BPO.</p>
+
+      <div class="mvv-grid">
+
+        <div class="mvv-card fade-scale d1">
+          <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Missão</h3>
+          <p>Proporcionar clareza e liberdade estratégica aos empreendedores — assumindo a complexidade financeira e entregando processos eficientes que permitem focar no crescimento e na essência do negócio.</p>
+        </div>
+
+        <div class="mvv-card fade-scale d2">
+          <div class="mvv-icon"><i class="fa-solid fa-telescope"></i></div>
+          <h3>Visão</h3>
+          <p>Ser o alicerce financeiro das empresas mais resilientes do mercado — reconhecidos como o parceiro indispensável em BPO Financeiro, transformando números em decisões estratégicas.</p>
+        </div>
+
+        <div class="mvv-card fade-scale d3">
+          <div class="mvv-icon"><i class="fa-solid fa-gem"></i></div>
+          <h3>Valores</h3>
+          <p>Solidez, transparência absoluta, precisão cirúrgica, mentalidade de parceiro e inovação com propósito — cinco pilares que garantem a longevidade das organizações que atendemos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PILARES ══════ -->
+  <section id="pilares">
+    <div class="container">
+      <span class="section-tag">O que fazemos</span>
+      <h2 class="section-title">Três pilares de atuação</h2>
+      <p class="section-desc">Atuamos como o motor de eficiência financeira da sua empresa, removendo o peso operacional e substituindo por dados de alta precisão.</p>
+
+      <div class="pilares-grid">
+
+        <div class="pilar-card fade-up d1">
+          <div class="pilar-num">01</div>
+          <div class="pilar-icon"><i class="fa-solid fa-coins"></i></div>
+          <h3>BPO Financeiro</h3>
+          <p>Assumimos as tarefas diárias que costumam drenar o tempo dos gestores. Não apenas executamos — otimizamos.</p>
+          <ul class="pilar-lista">
+            <li>Contas a pagar e a receber</li>
+            <li>Conciliação bancária diária</li>
+            <li>Faturamento e emissão de notas</li>
+            <li>Interface com a contabilidade</li>
+          </ul>
+        </div>
+
+        <div class="pilar-card fade-up d2">
+          <div class="pilar-num">02</div>
+          <div class="pilar-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Gestão financeira estratégica</h3>
+          <p>É aqui que os R$ 16 milhões geridos se transformam em vantagem competitiva. Atuamos como braço de controladoria.</p>
+          <ul class="pilar-lista">
+            <li>Relatórios gerenciais e dashboards</li>
+            <li>DRE, fluxo de caixa e margens</li>
+            <li>Análise de performance e escala</li>
+            <li>Planejamento orçamentário</li>
+          </ul>
+        </div>
+
+        <div class="pilar-card fade-up d3">
+          <div class="pilar-num">03</div>
+          <div class="pilar-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Tecnologia e governança</h3>
+          <p>Em 2026, gestão financeira não pode ser manual. A Oaks atua na vanguarda tecnológica para eliminar erros e acelerar resultados.</p>
+          <ul class="pilar-lista">
+            <li>Automação de processos</li>
+            <li>Segurança e compliance</li>
+            <li>Plataforma de monitoramento MEI</li>
+            <li>Proteção contra riscos fiscais</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ DIFERENCIAL ══════ -->
+  <section id="diferencial">
+    <div class="container">
+      <span class="section-tag">Por que Oaks</span>
+      <h2 class="section-title">O diferencial que transforma negócios</h2>
+      <p class="section-desc">Enquanto o mercado entrega "processamento", nós entregamos previsibilidade e liberdade estratégica.</p>
+
+      <div class="dif-grid">
+        <div class="dif-card fade-up d1">
+          <div class="dif-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+          <h3>Dados que geram decisão</h3>
+          <p>Traduzimos números frios em gráficos e indicadores claros para que você tome decisões baseadas em fatos.</p>
+        </div>
+        <div class="dif-card fade-up d2">
+          <div class="dif-card-icon"><i class="fa-solid fa-clock"></i></div>
+          <h3>Tempo de volta para você</h3>
+          <p>Assumimos toda a operação financeira para que você foque no que realmente importa: crescer seu negócio.</p>
+        </div>
+        <div class="dif-card fade-up d3">
+          <div class="dif-card-icon"><i class="fa-solid fa-lock"></i></div>
+          <h3>Segurança e compliance</h3>
+          <p>Operamos sob rígidos padrões de proteção de dados e normas financeiras, mantendo sua empresa protegida.</p>
+        </div>
+        <div class="dif-card fade-up d4">
+          <div class="dif-card-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+          <h3>Parceiro, não prestador</h3>
+          <p>Cuidamos do caixa do cliente com o mesmo zelo que cuidamos do nosso — mentalidade de owner.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CONTATO ══════ -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-grid">
+
+        <div class="contato-texto fade-left">
+          <span class="section-tag">Fale conosco</span>
+          <h2>Pronto para ter a base sólida que seu negócio merece?</h2>
+          <p>Entre em contato com nossa equipe. Atendemos segunda a sexta, das 9h às 17h, e respondemos via WhatsApp com agilidade.</p>
+
+          <div class="contato-itens">
+            <div class="contato-item">
+              <div class="contato-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div class="contato-item-txt">
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/5541997013092" target="_blank" rel="noopener noreferrer">
+                  (41) 99701-3092
+                </a>
+              </div>
+            </div>
+            <div class="contato-item">
+              <div class="contato-item-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contato-item-txt">
+                <strong>E-mail</strong>
+                <a href="mailto:oakscontabilidade@gmail.com">oakscontabilidade@gmail.com</a>
+              </div>
+            </div>
+            <div class="contato-item">
+              <div class="contato-item-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contato-item-txt">
+                <strong>Endereço</strong>
+                <span>Rua Rio Timbu, 904 — Iguaçu 1, Fazenda Rio Grande/PR</span>
+              </div>
+            </div>
+            <div class="contato-item">
+              <div class="contato-item-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="contato-item-txt">
+                <strong>Horário</strong>
+                <span>Segunda a sexta, 9h às 17h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contato-cta-box fade-right">
+          <p class="cta-titulo">Vamos conversar?</p>
+          <p class="cta-sub">Agende uma conversa gratuita e descubra como a Oaks pode transformar a saúde financeira da sua empresa.</p>
+          <a href="https://wa.me/5541997013092?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Oaks%20BPO."
+             target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Conversar pelo WhatsApp
+          </a>
+          <a href="mailto:oakscontabilidade@gmail.com" class="btn btn-outline-branco">
+            <i class="fa-solid fa-envelope"></i> Enviar e-mail
+          </a>
+          <div class="sociais">
+            <a href="https://www.instagram.com/oaks.bpofinanceiro" target="_blank" rel="noopener noreferrer"
+               class="social-btn" aria-label="Instagram Oaks BPO">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/oaks.gestaofinanceira" target="_blank" rel="noopener noreferrer"
+               class="social-btn" aria-label="Facebook Oaks BPO">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/5541997013092" target="_blank" rel="noopener noreferrer"
+               class="social-btn" aria-label="WhatsApp Oaks BPO">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="Oaks BPO & Gestão Financeira">
+        </div>
+        <div class="footer-info">
+          <p>Oaks BPO &amp; Gestão Financeira</p>
+          <p>CNPJ 56.042.169/0001-69 · Fazenda Rio Grande/PR</p>
+          <p>oakscontabilidade@gmail.com · (41) 99701-3092</p>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 Oaks BPO &amp; Gestão Financeira · Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- BADGE MONTESITE -->
+  <div id="montesite-footer-badge"></div>
+  <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5541997013092" target="_blank" rel="noopener noreferrer"
+     class="whatsapp-float" aria-label="Falar pelo WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SCROLL TOP -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script>
+    // ── HAMBURGER ──
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu   = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    navMenu.querySelectorAll('.nav-mob-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── SCROLL: PROGRESS + HEADER + SCROLL-TOP ──
+    const scrollBtn  = document.getElementById('scrollTopBtn');
+    const progressEl = document.getElementById('scrollProgress');
+    const header     = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total    = document.documentElement.scrollHeight - window.innerHeight;
+      progressEl.style.width = (scrolled / total * 100) + '%';
+      header.classList.toggle('scrolled', scrolled > 60);
+      scrollBtn.classList.toggle('show', scrolled > 400);
+    }, { passive: true });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── ANIMAÇÕES SCROLL ──
+    const animEls  = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .fade-scale');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    animEls.forEach(el => observer.observe(el));
+
+    // ── CONTADOR ──
+    function animCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const dur    = 1800;
+      const start  = performance.now();
+      function tick(now) {
+        const t   = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * ease) + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animCounter(e.target); counterObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+    // ── PARTÍCULAS HERO ──
+    (function() {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx    = canvas.getContext('2d');
+      function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      function rand(a, b) { return Math.random() * (b - a) + a; }
+      const particles = Array.from({ length: 40 }, () => ({
+        x: rand(0, canvas.width), y: rand(0, canvas.height),
+        r: rand(0.8, 2.2), vx: rand(-0.2, 0.2), vy: rand(-0.5, -0.15),
+        a: rand(0.2, 0.6),
+      }));
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(201,168,76,${p.a})`;
+          ctx.fill();
+          p.x += p.vx; p.y += p.vy;
+          if (p.y < -4) { p.y = canvas.height + 4; p.x = rand(0, canvas.width); }
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // ── TYPEWRITER LOOP NO HERO H2 ──
+    const twEl = document.querySelector('#hero h2');
+    if (twEl) {
+      const phrases = [
+        'A base sólida do seu próximo nível financeiro.',
+        'Clareza e liberdade estratégica para empreendedores.',
+        'Transformamos números em decisões de crescimento.',
+        'Seu parceiro financeiro de confiança. 🌳',
+      ];
+      let pi = 0, ci = 0, deleting = false;
+      function twLoop() {
+        const cur = phrases[pi];
+        if (!deleting) {
+          twEl.textContent = cur.slice(0, ci + 1);
+          ci++;
+          if (ci === cur.length) { deleting = true; setTimeout(twLoop, 2600); return; }
+          setTimeout(twLoop, ci < 4 ? 60 : 26);
+        } else {
+          twEl.textContent = cur.slice(0, ci - 1);
+          ci--;
+          if (ci === 0) {
+            deleting = false;
+            pi = (pi + 1) % phrases.length;
+            setTimeout(twLoop, 380);
+            return;
+          }
+          setTimeout(twLoop, 14);
+        }
+      }
+      setTimeout(twLoop, 800);
+    }
+
+    // ── SHIMMER NOS TÍTULOS ──
+    const titleObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('shimmer-active');
+          titleObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.section-title').forEach(el => titleObs.observe(el));
+
+    // ── TILT 3D NOS CARDS ──
+    document.querySelectorAll('.pilar-card, .mvv-card, .dif-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width  - 0.5;
+        const y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = `perspective(700px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg) translateY(-5px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+
+    // ── RIPPLE NOS BOTÕES ──
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const r    = btn.getBoundingClientRect();
+        const size = Math.max(r.width, r.height);
+        const wave = document.createElement('span');
+        wave.className = 'ripple-wave';
+        wave.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - r.left - size/2}px;top:${e.clientY - r.top - size/2}px`;
+        btn.appendChild(wave);
+        setTimeout(() => wave.remove(), 700);
+      });
+    });
+
+    // ── MAGNETIC NOS BOTÕES CTA ──
+    document.querySelectorAll('.btn-ouro, .btn-whatsapp, .nav-cta').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width  / 2) * 0.22;
+        const y = (e.clientY - r.top  - r.height / 2) * 0.22;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    // ── POP NOS DIFERENCIAIS DO SOBRE ──
+    const difObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.sobre-dif').forEach((d, i) => {
+            setTimeout(() => d.classList.add('dif-visible'), i * 100);
+          });
+          difObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const difGrid = document.querySelector('.sobre-diferenciais');
+    if (difGrid) difObs.observe(difGrid);
+  </script>
+</body>
+</html>
