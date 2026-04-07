@@ -1310,6 +1310,318 @@
       .hero-slogan { display: none; }
     }
 
+    /* ══════════════════════════════════
+       NÚMEROS EM DESTAQUE
+    ══════════════════════════════════ */
+    #numeros {
+      background: var(--azul);
+      padding: 80px 0;
+    }
+    .numeros-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .numero-item {
+      text-align: center;
+      padding: 40px 24px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .numero-item:last-child { border-right: none; }
+    .numero-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--verde), var(--ouro));
+      transition: width 0.6s ease;
+    }
+    .numero-item:hover::before { width: 60%; }
+    .numero-icon {
+      font-size: 1.6rem;
+      color: var(--ouro);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .numero-valor {
+      font-family: var(--ff-titulo);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--branco);
+      line-height: 1;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .numero-valor em {
+      font-style: normal;
+      color: var(--ouro-claro);
+    }
+    .numero-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    /* ══════════════════════════════════
+       COMO FUNCIONA
+    ══════════════════════════════════ */
+    #processo {
+      background: var(--cinza-f);
+    }
+    .processo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .processo-grid::before {
+      content: '';
+      position: absolute;
+      top: 44px; left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--verde), var(--ouro), var(--verde));
+      z-index: 0;
+    }
+    .passo-item {
+      text-align: center;
+      padding: 0 20px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .passo-num {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 2px solid var(--cinza-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-family: var(--ff-titulo);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--azul);
+      box-shadow: 0 4px 20px rgba(20,24,36,0.08);
+      transition: all var(--tr);
+      position: relative;
+    }
+    .passo-num span {
+      position: absolute;
+      bottom: -6px; right: -6px;
+      width: 24px; height: 24px;
+      background: var(--verde);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-size: 0.65rem;
+      font-family: var(--ff-corpo);
+      font-weight: 700;
+    }
+    .passo-item:hover .passo-num {
+      background: var(--azul);
+      color: var(--branco);
+      border-color: var(--azul);
+      transform: scale(1.06);
+      box-shadow: 0 8px 32px rgba(20,24,36,0.2);
+    }
+    .passo-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+    .passo-item p {
+      font-size: 0.84rem;
+      color: var(--texto-leve);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════
+       DEPOIMENTOS
+    ══════════════════════════════════ */
+    #depoimentos {
+      background:
+        linear-gradient(rgba(20,24,36,0.96), rgba(20,24,36,0.96)),
+        url('images/bg-sobre.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .depo-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative;
+      transition: background var(--tr), border-color var(--tr), transform var(--tr);
+    }
+    .depo-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(184,160,122,0.3);
+      transform: translateY(-4px);
+    }
+    .depo-aspas {
+      font-family: var(--ff-titulo);
+      font-size: 4rem;
+      line-height: 0.5;
+      color: var(--ouro);
+      opacity: 0.5;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .depo-texto {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .depo-autor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 20px;
+    }
+    .depo-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde), var(--ouro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-titulo);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--branco);
+      flex-shrink: 0;
+    }
+    .depo-nome strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--branco);
+      font-weight: 700;
+    }
+    .depo-nome span {
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .depo-estrelas {
+      margin-left: auto;
+      color: var(--ouro);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    /* ══════════════════════════════════
+       FAQ
+    ══════════════════════════════════ */
+    #faq {
+      background: var(--creme);
+    }
+    .faq-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border: 1px solid var(--cinza-2);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color var(--tr), box-shadow var(--tr);
+    }
+    .faq-item.open {
+      border-color: var(--verde);
+      box-shadow: 0 4px 20px rgba(20,24,36,0.07);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: var(--branco);
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--ff-corpo);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--azul);
+      transition: background var(--tr), color var(--tr);
+    }
+    .faq-question:hover { background: var(--cinza-f); }
+    .faq-item.open .faq-question { background: var(--cinza-f); color: var(--verde); }
+    .faq-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--cinza-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      color: var(--texto);
+      transition: background var(--tr), transform var(--tr), color var(--tr);
+    }
+    .faq-item.open .faq-icon {
+      background: var(--verde);
+      color: var(--branco);
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: var(--branco);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p {
+      padding: 0 24px 22px;
+      font-size: 0.88rem;
+      color: var(--texto);
+      line-height: 1.75;
+    }
+
+    /* ── RESPONSIVIDADE DAS NOVAS SEÇÕES ── */
+    @media (max-width: 1023px) {
+      #depoimentos { background-attachment: scroll, scroll; }
+    }
+    @media (max-width: 899px) {
+      .numeros-grid { grid-template-columns: repeat(2, 1fr); }
+      .numero-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .numero-item:nth-child(2) { border-right: none; }
+      .numero-item:nth-child(3), .numero-item:nth-child(4) { border-bottom: none; }
+      .processo-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .processo-grid::before { display: none; }
+      .depo-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 599px) {
+      .numeros-grid { grid-template-columns: 1fr 1fr; }
+      .depo-grid { grid-template-columns: 1fr; }
+      .processo-grid { grid-template-columns: 1fr; }
+      .faq-question { font-size: 0.88rem; padding: 16px 18px; }
+      .faq-answer p { padding: 0 18px 18px; font-size: 0.84rem; }
+    }
+    @media (max-width: 479px) {
+      .numeros-grid { grid-template-columns: 1fr; }
+      .numero-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .numero-item:last-child { border-bottom: none; }
+      .numero-valor { font-size: 2.4rem; }
+      .depo-card { padding: 28px 20px; }
+    }
+
     /* ── GLITCH NO H1 DO HERO ── */
     @keyframes glitchH1 {
       0%, 100% { text-shadow: none; letter-spacing: -1px; }
@@ -1573,6 +1885,34 @@
     </div>
   </div>
 
+  <!-- ══════ NÚMEROS ══════ -->
+  <section id="numeros" aria-label="Números em destaque">
+    <div class="container">
+      <div class="numeros-grid">
+        <div class="numero-item fade-scale d1">
+          <i class="fa-solid fa-sack-dollar numero-icon" aria-hidden="true"></i>
+          <span class="numero-valor">R$<span class="counter" data-target="16" data-suffix="M+">16M+</span></span>
+          <span class="numero-label">Capital gerido</span>
+        </div>
+        <div class="numero-item fade-scale d2">
+          <i class="fa-solid fa-file-invoice numero-icon" aria-hidden="true"></i>
+          <span class="numero-valor"><span class="counter" data-target="100" data-suffix="%">100%</span></span>
+          <span class="numero-label">Precisão nas conciliações</span>
+        </div>
+        <div class="numero-item fade-scale d3">
+          <i class="fa-solid fa-building numero-icon" aria-hidden="true"></i>
+          <span class="numero-valor"><span class="counter" data-target="3" data-suffix=" pilares">3 pilares</span></span>
+          <span class="numero-label">De atuação integrada</span>
+        </div>
+        <div class="numero-item fade-scale d4">
+          <i class="fa-solid fa-shield-halved numero-icon" aria-hidden="true"></i>
+          <span class="numero-valor"><span class="counter" data-target="24" data-suffix="h">24h</span></span>
+          <span class="numero-label">Dados sempre atualizados</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════ SOBRE ══════ -->
   <section id="sobre">
     <div class="container">
@@ -1747,6 +2087,155 @@
           <div class="dif-card-icon"><i class="fa-solid fa-handshake-simple"></i></div>
           <h3>Parceiro, não prestador</h3>
           <p>Cuidamos do caixa do cliente com o mesmo zelo que cuidamos do nosso — mentalidade de owner.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PROCESSO ══════ -->
+  <section id="processo">
+    <div class="container">
+      <span class="section-tag">Como funciona</span>
+      <h2 class="section-title">Do caos à clareza em 4 passos</h2>
+      <p class="section-desc">Um processo simples e estruturado para você ter controle financeiro total desde o primeiro dia.</p>
+
+      <div class="processo-grid">
+        <div class="passo-item fade-scale d1">
+          <div class="passo-num">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <span>01</span>
+          </div>
+          <h3>Diagnóstico</h3>
+          <p>Entendemos a fundo a situação financeira atual da sua empresa, identificando gargalos e oportunidades.</p>
+        </div>
+        <div class="passo-item fade-scale d2">
+          <div class="passo-num">
+            <i class="fa-solid fa-puzzle-piece"></i>
+            <span>02</span>
+          </div>
+          <h3>Estruturação</h3>
+          <p>Organizamos processos, separamos contas e implementamos ferramentas para uma gestão eficiente.</p>
+        </div>
+        <div class="passo-item fade-scale d3">
+          <div class="passo-num">
+            <i class="fa-solid fa-gears"></i>
+            <span>03</span>
+          </div>
+          <h3>Operação</h3>
+          <p>Assumimos a rotina financeira — contas, conciliações, fluxo de caixa — com total responsabilidade.</p>
+        </div>
+        <div class="passo-item fade-scale d4">
+          <div class="passo-num">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>04</span>
+          </div>
+          <h3>Relatórios</h3>
+          <p>Entregamos dashboards e relatórios claros para você tomar decisões estratégicas com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ DEPOIMENTOS ══════ -->
+  <section id="depoimentos">
+    <div class="container">
+      <span class="section-tag">Clientes</span>
+      <h2 class="section-title" style="color:var(--branco)">O que dizem sobre a Oaks</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.6)">Empresários que encontraram clareza financeira e liberdade para crescer.</p>
+
+      <div class="depo-grid">
+        <div class="depo-card fade-up d1">
+          <span class="depo-aspas">"</span>
+          <p class="depo-texto">Antes da Oaks, eu não sabia se estava dando lucro ou prejuízo. Hoje tenho total clareza do meu fluxo de caixa e finalmente consigo planejar o crescimento da empresa.</p>
+          <div class="depo-autor">
+            <div class="depo-avatar">RM</div>
+            <div class="depo-nome">
+              <strong>Ricardo M.</strong>
+              <span>Dono de Construtora · Curitiba/PR</span>
+            </div>
+            <span class="depo-estrelas">★★★★★</span>
+          </div>
+        </div>
+        <div class="depo-card fade-up d2">
+          <span class="depo-aspas">"</span>
+          <p class="depo-texto">A equipe da Oaks assumiu toda a parte financeira do meu negócio. Economizei tempo, reduzi custos e ainda recebi insights que não esperava. Recomendo demais.</p>
+          <div class="depo-autor">
+            <div class="depo-avatar">FS</div>
+            <div class="depo-nome">
+              <strong>Fernanda S.</strong>
+              <span>Empresária · Região Metropolitana de Curitiba</span>
+            </div>
+            <span class="depo-estrelas">★★★★★</span>
+          </div>
+        </div>
+        <div class="depo-card fade-up d3">
+          <span class="depo-aspas">"</span>
+          <p class="depo-texto">Profissionalismo acima da média. Conciliações sempre em dia, relatórios claros e atendimento ágil. A Oaks é o parceiro financeiro que toda empresa precisa.</p>
+          <div class="depo-autor">
+            <div class="depo-avatar">LP</div>
+            <div class="depo-nome">
+              <strong>Lucas P.</strong>
+              <span>CEO de Startup · Fazenda Rio Grande/PR</span>
+            </div>
+            <span class="depo-estrelas">★★★★★</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FAQ ══════ -->
+  <section id="faq">
+    <div class="container">
+      <span class="section-tag">Dúvidas</span>
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <p class="section-desc">Tudo o que você precisa saber antes de começar.</p>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            O que é BPO Financeiro?
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p>BPO Financeiro (Business Process Outsourcing) é a terceirização completa da gestão financeira da sua empresa. A Oaks assume contas a pagar e receber, fluxo de caixa, conciliações bancárias e relatórios gerenciais, liberando você para focar no seu negócio.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Para que tipo de empresa vocês atendem?
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p>Atendemos empresas de pequeno e médio porte de diversos segmentos — comércio, serviços, construção civil, saúde, tecnologia e muito mais. Se você tem um CNPJ ativo e precisa de controle financeiro profissional, a Oaks pode ajudar.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Vocês substituem o contador?
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p>Não. A Oaks cuida da gestão financeira (operacional e estratégica), enquanto o contador cuida das obrigações fiscais e tributárias. As duas áreas são complementares e trabalhamos em parceria com escritórios contábeis.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Como é feita a segurança das informações da minha empresa?
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p>Operamos com sigilo total e assinamos acordo de confidencialidade (NDA) com todos os clientes. Utilizamos ferramentas com criptografia e acesso controlado. A segurança dos seus dados é nossa prioridade.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Como começo a trabalhar com a Oaks?
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p>É simples: entre em contato pelo WhatsApp ou e-mail, agendamos uma conversa gratuita para entender seu negócio e apresentamos uma proposta personalizada. Após a aprovação, iniciamos o diagnóstico e a estruturação em poucos dias.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2075,6 +2564,22 @@
     }, { threshold: 0.3 });
     const difGrid = document.querySelector('.sobre-diferenciais');
     if (difGrid) difObs.observe(difGrid);
+
+    /* ── FAQ ACCORDION ── */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
   </script>
 </body>
 </html>
